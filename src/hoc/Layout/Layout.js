@@ -4,7 +4,11 @@ import classes from "./css/Layout.module.css";
 class Layout extends Component {
   state = {};
   render() {
-    return <main className={classes.Content}>{this.props.children}</main>;
+    return (
+      <div className={classes.Layout}>
+        <main className={classes.Content}>{this.props.children}</main>
+      </div>
+    );
   }
 }
 

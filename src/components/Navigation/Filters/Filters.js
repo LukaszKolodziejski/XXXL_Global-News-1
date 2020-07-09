@@ -22,21 +22,21 @@ class Filters extends Component {
 
     return (
       <Fragment>
-        <div class="dropdown">
-          <button class="dropbtn">{dropdown[0].name}</button>
-          <div class="dropdown-content">
+        <div className="dropdown">
+          <button className="dropbtn">{dropdown[0].name}</button>
+          <div className="dropdown-content">
             <button>{dropdown[0].kindOf[0]}</button>
             <button>{dropdown[0].kindOf[1]}</button>
           </div>
         </div>
-        <div class="dropdown">
-          <button class="dropbtn">{dropdown[1].name}</button>
-          <div class="dropdown-content">
+        <div className="dropdown">
+          <button className="dropbtn">{dropdown[1].name}</button>
+          <div className="dropdown-content">
             <button>{dropdown[1].kindOf[0]}</button>
             <button>{dropdown[1].kindOf[1]}</button>
           </div>
         </div>
-        <button class="clear">Clear Filters</button>
+        <button className="clear">Clear Filters</button>
       </Fragment>
     );
   }
