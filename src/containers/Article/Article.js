@@ -1,9 +1,16 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+
+import SingleArticle from "../../components/Articles/SingleArticle/SingleArticle";
 
 class Article extends Component {
   state = {};
   render() {
-    return <div>Article</div>;
+    return (
+      <Fragment>
+        <button className="returnIndex">Return to articles list</button>
+        <SingleArticle />
+      </Fragment>
+    );
   }
 }
 
