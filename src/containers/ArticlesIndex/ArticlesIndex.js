@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 import Filters from "../../components/Navigation/Filters/Filters";
+import Articles from "../../components/Articles/Articles";
 class ArticleIndex extends Component {
   state = {};
   render() {
@@ -8,7 +9,7 @@ class ArticleIndex extends Component {
       <Fragment>
         <h1>Articles</h1>
         <Filters />
-        <div>ArticleIndex</div>
+        <Articles />
       </Fragment>
     );
   }
