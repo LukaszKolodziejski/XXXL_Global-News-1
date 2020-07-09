@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-
+import { Link } from "react-router-dom";
 class SingleArticle extends Component {
   state = {};
   render() {
@@ -18,7 +18,9 @@ class SingleArticle extends Component {
             quia error laudantium. Accusantium ullam facere tempore, voluptas
             rerum atque maxime.
           </div>
-          <button className="CTA">Read More</button>
+          <Link to="/article" className="CTA">
+            Read More
+          </Link>
         </article>
       </Fragment>
     );
