@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import styles from "./css/Filters.module.css";
 
 class Filters extends Component {
   state = {
@@ -22,21 +23,23 @@ class Filters extends Component {
 
     return (
       <Fragment>
-        <div className="dropdown">
-          <button className="dropbtn">{dropdown[0].name}</button>
-          <div className="dropdown-content">
-            <button>{dropdown[0].kindOf[0]}</button>
-            <button>{dropdown[0].kindOf[1]}</button>
+        <nav className={styles.Filters}>
+          <div className="dropdown">
+            <button className="dropbtn">{dropdown[0].name}</button>
+            <div className="dropdown-content">
+              <button>{dropdown[0].kindOf[0]}</button>
+              <button>{dropdown[0].kindOf[1]}</button>
+            </div>
           </div>
-        </div>
-        <div className="dropdown">
-          <button className="dropbtn">{dropdown[1].name}</button>
-          <div className="dropdown-content">
-            <button>{dropdown[1].kindOf[0]}</button>
-            <button>{dropdown[1].kindOf[1]}</button>
+          <div className="dropdown">
+            <button className="dropbtn">{dropdown[1].name}</button>
+            <div className="dropdown-content">
+              <button>{dropdown[1].kindOf[0]}</button>
+              <button>{dropdown[1].kindOf[1]}</button>
+            </div>
           </div>
-        </div>
-        <button className="clear">Clear Filters</button>
+          <button className="clear">Clear Filters</button>
+        </nav>
       </Fragment>
     );
   }

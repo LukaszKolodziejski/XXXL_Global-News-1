@@ -10,7 +10,7 @@ class ArticleIndex extends Component {
       <Fragment>
         <Title name="Articles" />
         <Filters />
-        <Articles />
+        {/* <Articles /> */}
       </Fragment>
     );
   }
