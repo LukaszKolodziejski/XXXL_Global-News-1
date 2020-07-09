@@ -7,7 +7,7 @@ class Article extends Component {
   render() {
     return (
       <Fragment>
-        <h1>Article Title</h1>
+        <h1>Article Title </h1>
         <button className="returnIndex">Return to articles list</button>
         <SingleArticle />
       </Fragment>
