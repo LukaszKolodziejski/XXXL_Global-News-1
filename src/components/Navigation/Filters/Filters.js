@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 class Filters extends Component {
   state = {
@@ -8,12 +8,12 @@ class Filters extends Component {
         kindOf: ["tech", "travel", "politics", "sports"],
       },
       {
-        name: "Sort By",
-        kindOf: ["popularity", "publishedAt"],
-      },
-      {
         name: "Dates",
         kindOf: ["this month", "this week", "today"],
+      },
+      {
+        name: "Sort By",
+        kindOf: ["popularity", "publishedAt"],
       },
     ],
   };
@@ -21,13 +21,23 @@ class Filters extends Component {
     const { dropdown } = this.state;
 
     return (
-      <div class="dropdown">
-        <button class="dropbtn">{dropdown[0].name}</button>
-        <div class="dropdown-content">
-          <a href="#">{dropdown[0].kindOf[0]}</a>
-          <a href="#">{dropdown[0].kindOf[1]}</a>
+      <Fragment>
+        <div class="dropdown">
+          <button class="dropbtn">{dropdown[0].name}</button>
+          <div class="dropdown-content">
+            <button>{dropdown[0].kindOf[0]}</button>
+            <button>{dropdown[0].kindOf[1]}</button>
+          </div>
         </div>
-      </div>
+        <div class="dropdown">
+          <button class="dropbtn">{dropdown[1].name}</button>
+          <div class="dropdown-content">
+            <button>{dropdown[1].kindOf[0]}</button>
+            <button>{dropdown[1].kindOf[1]}</button>
+          </div>
+        </div>
+        <button class="clear">Clear Filters</button>
+      </Fragment>
     );
   }
 }
