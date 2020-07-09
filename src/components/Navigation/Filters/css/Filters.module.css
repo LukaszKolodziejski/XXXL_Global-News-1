@@ -1,4 +1,52 @@
 .Filters {
   background-color: #ebc117;
+  padding: 8px 0;
+}
+
+.Dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.Dropdown__content {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  cursor: pointer;
+}
+
+.Dropdown:hover .Dropdown__content {
+  display: block;
+}
+
+.Dropdown__content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.Dropdown__content div:hover {
+  background-color: #f1f1f1;
+}
+
+.Dropbtn {
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: #ffffff;
+  margin-right: 17.5px;
+  height: 32px;
+  width: 104px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: left;
+  cursor: pointer;
 }
 /*# sourceMappingURL=Filters.module.css.map */

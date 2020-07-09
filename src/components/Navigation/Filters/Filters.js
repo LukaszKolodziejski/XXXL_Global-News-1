@@ -9,7 +9,7 @@ class Filters extends Component {
         kindOf: ["tech", "travel", "politics", "sports"],
       },
       {
-        name: "Dates",
+        name: "Time",
         kindOf: ["this month", "this week", "today"],
       },
       {
@@ -24,18 +24,18 @@ class Filters extends Component {
     return (
       <Fragment>
         <nav className={styles.Filters}>
-          <div className="dropdown">
-            <button className="dropbtn">{dropdown[0].name}</button>
-            <div className="dropdown-content">
-              <button>{dropdown[0].kindOf[0]}</button>
-              <button>{dropdown[0].kindOf[1]}</button>
+          <div className={styles.Dropdown}>
+            <button className={styles.Dropbtn}>{dropdown[0].name}</button>
+            <div className={styles.Dropdown__content}>
+              <div>{dropdown[0].kindOf[0]}</div>
+              <div>{dropdown[0].kindOf[1]}</div>
             </div>
           </div>
-          <div className="dropdown">
-            <button className="dropbtn">{dropdown[1].name}</button>
-            <div className="dropdown-content">
-              <button>{dropdown[1].kindOf[0]}</button>
-              <button>{dropdown[1].kindOf[1]}</button>
+          <div className={styles.Dropdown}>
+            <button className={styles.Dropbtn}>{dropdown[1].name}</button>
+            <div className={styles.Dropdown__content}>
+              <div>{dropdown[1].kindOf[0]}</div>
+              <div>{dropdown[1].kindOf[1]}</div>
             </div>
           </div>
           <button className="clear">Clear Filters</button>
