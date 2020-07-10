@@ -49,4 +49,31 @@
   text-align: left;
   cursor: pointer;
 }
+
+.Dropbtn__arrow {
+  display: inline-block;
+  float: right;
+  border-right: 1.5px solid #969696;
+  border-bottom: 1.5px solid #969696;
+  height: 6px;
+  width: 6px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: 4px;
+}
+
+.Clearbtn {
+  float: right;
+  background: #ffffff;
+  border: 1px solid #493be1;
+  height: 32px;
+  width: 164px;
+  font-size: 16px;
+  line-height: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #493be1;
+}
 /*# sourceMappingURL=Filters.module.css.map */

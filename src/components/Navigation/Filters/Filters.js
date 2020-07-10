@@ -25,20 +25,26 @@ class Filters extends Component {
       <Fragment>
         <nav className={styles.Filters}>
           <div className={styles.Dropdown}>
-            <button className={styles.Dropbtn}>{dropdown[0].name}</button>
+            <button className={styles.Dropbtn}>
+              <span>{dropdown[0].name}</span>
+              <div className={styles.Dropbtn__arrow}></div>
+            </button>
             <div className={styles.Dropdown__content}>
               <div>{dropdown[0].kindOf[0]}</div>
               <div>{dropdown[0].kindOf[1]}</div>
             </div>
           </div>
           <div className={styles.Dropdown}>
-            <button className={styles.Dropbtn}>{dropdown[1].name}</button>
+            <button className={styles.Dropbtn}>
+              <span>{dropdown[1].name}</span>
+              <div className={styles.Dropbtn__arrow}></div>
+            </button>
             <div className={styles.Dropdown__content}>
               <div>{dropdown[1].kindOf[0]}</div>
               <div>{dropdown[1].kindOf[1]}</div>
             </div>
           </div>
-          <button className="clear">Clear Filters</button>
+          <button className={styles.Clearbtn}>Clear Filters</button>
         </nav>
       </Fragment>
     );
