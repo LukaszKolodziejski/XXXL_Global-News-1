@@ -1,0 +1,20 @@
+.Header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: #f30b0b;
+}
+
+.Header__Title {
+  display: block;
+  background-color: #eb5454;
+  padding: 45px 0;
+  line-height: 32px;
+  font-size: 32px;
+  color: #465252;
+}
+/*# sourceMappingURL=Title.module.css.map */
