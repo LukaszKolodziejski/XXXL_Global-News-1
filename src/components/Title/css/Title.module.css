@@ -12,9 +12,10 @@
 .Header__Title {
   display: block;
   background-color: #eb5454;
-  padding: 45px 0;
+  padding: 43px 0;
   line-height: 32px;
   font-size: 32px;
+  font-weight: 300;
   color: #465252;
 }
 /*# sourceMappingURL=Title.module.css.map */

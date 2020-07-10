@@ -2,15 +2,15 @@
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  // margin-top: 3.26%;
   background-color: rgb(243, 11, 11);
 
   &__Title {
     display: block;
     background-color: rgb(235, 84, 84);
-    padding: 45px 0;
+    padding: 43px 0;
     line-height: 32px;
     font-size: 32px;
+    font-weight: 300;
     color: #465252;
   }
 }
