@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import styles from "./css/Filters.module.css";
 
 class Filters extends Component {
   state = {
@@ -8,7 +9,7 @@ class Filters extends Component {
         kindOf: ["tech", "travel", "politics", "sports"],
       },
       {
-        name: "Dates",
+        name: "Time",
         kindOf: ["this month", "this week", "today"],
       },
       {
@@ -22,21 +23,29 @@ class Filters extends Component {
 
     return (
       <Fragment>
-        <div class="dropdown">
-          <button class="dropbtn">{dropdown[0].name}</button>
-          <div class="dropdown-content">
-            <button>{dropdown[0].kindOf[0]}</button>
-            <button>{dropdown[0].kindOf[1]}</button>
+        <nav className={styles.Filters}>
+          <div className={styles.Dropdown}>
+            <button className={styles.Dropbtn}>
+              <span>{dropdown[0].name}</span>
+              <div className={styles.Dropbtn__arrow}></div>
+            </button>
+            <div className={styles.Dropdown__content}>
+              <div>{dropdown[0].kindOf[0]}</div>
+              <div>{dropdown[0].kindOf[1]}</div>
+            </div>
           </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn">{dropdown[1].name}</button>
-          <div class="dropdown-content">
-            <button>{dropdown[1].kindOf[0]}</button>
-            <button>{dropdown[1].kindOf[1]}</button>
+          <div className={styles.Dropdown}>
+            <button className={styles.Dropbtn}>
+              <span>{dropdown[1].name}</span>
+              <div className={styles.Dropbtn__arrow}></div>
+            </button>
+            <div className={styles.Dropdown__content}>
+              <div>{dropdown[1].kindOf[0]}</div>
+              <div>{dropdown[1].kindOf[1]}</div>
+            </div>
           </div>
-        </div>
-        <button class="clear">Clear Filters</button>
+          <button className={styles.Clearbtn}>Clear Filters</button>
+        </nav>
       </Fragment>
     );
   }
