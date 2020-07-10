@@ -1,0 +1,38 @@
+.Articles {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  column-gap: 25px;
+  row-gap: 41px;
+  //   grid-template-rows: auto 1fr auto auto;
+  //   grid-template-areas:
+  //     "logo szukaj menu"
+  //     "img img img "
+  //     "komt komt komt "
+  //     "foot foot foot ";
+  @media (min-width: 1024px) {
+    // grid-template-columns: minmax(300px, auto) 1fr;
+    // grid-template-rows: auto auto auto 1fr auto auto;
+    // grid-template-areas:
+    //   "logo img"
+    //   "menu img "
+    //   "szukaj img"
+    //   "e3 img"
+    //   "kont img"
+    //   "foot foot ";
+  }
+}
+
+.LoadMoreButton {
+  background: #ffffff;
+  margin-top: 50px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #493be1;
+  width: 330px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #493be1;
+}

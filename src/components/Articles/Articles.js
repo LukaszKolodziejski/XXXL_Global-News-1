@@ -1,15 +1,19 @@
 import React, { Component, Fragment } from "react";
 import SingleArticle from "./SingleArticle/SingleArticle";
-
+import styles from "./css/Articles.module.css";
 class Articles extends Component {
   state = {};
   render() {
     return (
       <Fragment>
-        <SingleArticle />
-        <SingleArticle />
-        <SingleArticle />
-        <button className="loadMoreButton">Show More</button>
+        <div className={styles.Articles}>
+          <SingleArticle />
+          <SingleArticle />
+          <SingleArticle />
+          <SingleArticle />
+          <SingleArticle />
+        </div>
+        <button className={styles.LoadMoreButton}>Show More</button>
       </Fragment>
     );
   }

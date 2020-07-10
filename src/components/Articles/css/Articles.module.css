@@ -1,0 +1,26 @@
+.Articles {
+  margin-top: 14px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (2fr)[3];
+      grid-template-columns: repeat(3, 2fr);
+  -webkit-column-gap: 25px;
+          column-gap: 25px;
+  row-gap: 41px;
+}
+
+.LoadMoreButton {
+  background: #ffffff;
+  margin-top: 50px;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 1px solid #493be1;
+  width: 330px;
+  height: 48px;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #493be1;
+}
+/*# sourceMappingURL=Articles.module.css.map */
