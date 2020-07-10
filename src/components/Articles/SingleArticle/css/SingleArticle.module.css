@@ -11,6 +11,7 @@
   background-size: cover;
   position: relative;
   margin-bottom: 17px;
+  border-radius: 4px 4px 0px 0px;
 }
 
 .SingleArticle__title {
