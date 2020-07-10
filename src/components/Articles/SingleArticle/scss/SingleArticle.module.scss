@@ -40,6 +40,9 @@
     line-height: 16px;
     text-align: center;
     color: #ffffff;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

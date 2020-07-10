@@ -42,6 +42,10 @@
   color: #ffffff;
 }
 
+.SingleArticle__CTA:hover {
+  cursor: pointer;
+}
+
 .Information {
   margin-bottom: 8.5px;
 }
