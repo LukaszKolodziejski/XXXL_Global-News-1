@@ -13,11 +13,12 @@ class Filters extends Component {
           searchQuery: "q=",
           startQuery: "a",
           query: "",
+          active: false,
           values: ["tech", "travel", "politics", "sports"],
         },
         data: {
           name: "Topic",
-          active: false,
+          dropdownName: "Topic",
           values: ["Tech", "Travel", "Politics", "Sports"],
           activeValue: "",
         },
@@ -28,11 +29,12 @@ class Filters extends Component {
           searchQuery: "from=",
           startQuery: "",
           query: ">>>>>>> Tu jest Obliczona Data  <<<<<",
+          active: false,
           values: null,
         },
         data: {
           name: "Time",
-          active: false,
+          dropdownName: "Time",
           values: ["This month", "This week", "Today"],
           activeValue: "",
         },
@@ -43,11 +45,12 @@ class Filters extends Component {
           searchQuery: "sortBy=",
           startQuery: "",
           query: "",
+          active: false,
           values: ["popularity", "publishedAt"],
         },
         data: {
           name: "Sort By",
-          active: false,
+          dropdownName: "Sort By",
           values: ["Popularity", "Publication Date"],
           activeValue: "",
         },
@@ -62,16 +65,47 @@ class Filters extends Component {
       .catch((err) => console.log(err));
   };
 
+  dropdownContentHandler = (value, filterId) => {
+    const { filters } = { ...this.state };
+
+    filters.forEach((filter) => {
+      if (filter.id === filterId) {
+        const { activeValue } = filter.data;
+        if (activeValue !== value) {
+          filter.data.dropdownName = value;
+          filter.data.activeValue = value;
+          filter.api.active = true;
+          filter.api.query = "jeszcze nie wiem";
+        } else {
+          filter.data.dropdownName = filter.data.name;
+          filter.data.activeValue = "";
+          filter.api.active = false;
+          filter.api.query = filter.api.startQuery;
+        }
+      }
+    });
+    this.setState({ filters });
+  };
+
+  // componentDidUpdate = (prevProps, prevState) => console.log("Update <<");
+
   render() {
     const { filters } = this.state;
 
     const allFilters = filters.map((filter) => (
       <div key={filter.id} className={styles.Dropdown}>
-        <Button btnType="Dropbtn">{filter.data.name}</Button>
+        <Button btnType="Dropbtn">{filter.data.dropdownName}</Button>
         <div className={styles.Dropdown__content}>
-          {filter.data.values.map((value) => (
-            <div key={value}>{value}</div>
-          ))}
+          {filter.data.values.map((value) => {
+            return (
+              <div
+                key={value}
+                onClick={() => this.dropdownContentHandler(value, filter.id)}
+              >
+                {value}
+              </div>
+            );
+          })}
         </div>
       </div>
     ));
