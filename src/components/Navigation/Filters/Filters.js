@@ -1,81 +1,87 @@
 import React, { Component, Fragment } from "react";
-// import axios from "../../../axios-newsapi";
-import NewsAPI from "newsapi";
+import axios from "../../../axios-newsapi";
 import styles from "./css/Filters.module.css";
 
-const newsapi = new NewsAPI("21dec1c6cdd34f6986cecd09f8d9c71e");
-
+const API_KEY = "21dec1c6cdd34f6986cecd09f8d9c71e";
 class Filters extends Component {
   state = {
-    dropdown: [
+    filters: [
       {
-        name: "Topic",
-        kindOf: ["tech", "travel", "politics", "sports"],
+        id: "Topic",
+        api: {
+          searchQuery: "q=",
+          startQuery: "a",
+          query: "",
+          values: ["tech", "travel", "politics", "sports"],
+        },
+        data: {
+          name: "Topic",
+          active: false,
+          values: ["Tech", "Travel", "Politics", "Sports"],
+          activeValue: "",
+        },
       },
       {
-        name: "Time",
-        kindOf: ["this month", "this week", "today"],
+        id: "Dates",
+        api: {
+          searchQuery: "from=",
+          startQuery: "",
+          query: ">>>>>>> Tu jest Obliczona Data  <<<<<",
+          values: null,
+        },
+        data: {
+          name: "Time",
+          active: false,
+          values: ["This month", "This week", "Today"],
+          activeValue: "",
+        },
       },
       {
-        name: "Sort By",
-        kindOf: ["popularity", "publishedAt"],
+        id: "SortBy",
+        api: {
+          searchQuery: "sortBy=",
+          startQuery: "",
+          query: "",
+          values: ["popularity", "publishedAt"],
+        },
+        data: {
+          name: "Sort By",
+          active: false,
+          values: ["Popularity", "Publication Date"],
+          activeValue: "",
+        },
       },
     ],
   };
 
   componentDidMount = () => {
-    // axios
-    //   .get(
-    //     `/everything?q=a&from=2020-07-11&apiKey=21dec1c6cdd34f6986cecd09f8d9c71e.json`
-    //   )
-    //   .then((res) => console.log(res))
-    //   .catch((err) => console.log(err));
-    newsapi.v2
-      .everything({
-        q: "a",
-        from: "2017-12-01",
-        language: "en",
-        sortBy: "relevancy",
-        page: 2,
-      })
-      .then((res) => {
-        console.log(res);
-        /*
-      {
-          status: "ok",
-          articles: [...]
-        }
-        */
-      })
+    axios
+      .get(`/everything?q=a&apiKey=${API_KEY}`)
+      .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
 
   render() {
-    const { dropdown } = this.state;
+    const { filters } = this.state;
+
+    const allFilters = filters.map((filter) => (
+      <div key={filter.id} className={styles.Dropdown}>
+        <button className={styles.Dropbtn}>
+          <span>{filter.data.name}</span>
+          <div className={styles.Dropbtn__arrow}></div>
+        </button>
+        <div className={styles.Dropdown__content}>
+          {filter.data.values.map((value) => (
+            <div key={value}>{value}</div>
+          ))}
+        </div>
+      </div>
+    ));
 
     return (
       <Fragment>
         <nav className={styles.Filters}>
-          <div className={styles.Dropdown}>
-            <button className={styles.Dropbtn}>
-              <span>{dropdown[0].name}</span>
-              <div className={styles.Dropbtn__arrow}></div>
-            </button>
-            <div className={styles.Dropdown__content}>
-              <div>{dropdown[0].kindOf[0]}</div>
-              <div>{dropdown[0].kindOf[1]}</div>
-            </div>
-          </div>
-          <div className={styles.Dropdown}>
-            <button className={styles.Dropbtn}>
-              <span>{dropdown[1].name}</span>
-              <div className={styles.Dropbtn__arrow}></div>
-            </button>
-            <div className={styles.Dropdown__content}>
-              <div>{dropdown[1].kindOf[0]}</div>
-              <div>{dropdown[1].kindOf[1]}</div>
-            </div>
-          </div>
+          {allFilters}
           <button className={styles.Clearbtn}>Clear Filters</button>
         </nav>
       </Fragment>
