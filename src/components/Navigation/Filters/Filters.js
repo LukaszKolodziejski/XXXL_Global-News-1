@@ -1,5 +1,9 @@
 import React, { Component, Fragment } from "react";
+// import axios from "../../../axios-newsapi";
+import NewsAPI from "newsapi";
 import styles from "./css/Filters.module.css";
+
+const newsapi = new NewsAPI("21dec1c6cdd34f6986cecd09f8d9c71e");
 
 class Filters extends Component {
   state = {
@@ -18,6 +22,34 @@ class Filters extends Component {
       },
     ],
   };
+
+  componentDidMount = () => {
+    // axios
+    //   .get(
+    //     `/everything?q=a&from=2020-07-11&apiKey=21dec1c6cdd34f6986cecd09f8d9c71e.json`
+    //   )
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
+    newsapi.v2
+      .everything({
+        q: "a",
+        from: "2017-12-01",
+        language: "en",
+        sortBy: "relevancy",
+        page: 2,
+      })
+      .then((res) => {
+        console.log(res);
+        /*
+      {
+          status: "ok",
+          articles: [...]
+        }
+        */
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     const { dropdown } = this.state;
 
