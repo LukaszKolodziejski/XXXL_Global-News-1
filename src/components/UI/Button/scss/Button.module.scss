@@ -51,3 +51,30 @@
   text-align: center;
   color: #ffffff;
 }
+
+.Dropbtn {
+  color: #000000;
+  border: none;
+  border-bottom: 1px solid #dcdcdc;
+  background-color: #ffffff;
+  margin-right: 17.5px;
+  height: 32px;
+  width: 104px;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: left;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 0;
+    border-right: 1.5px solid #969696;
+    border-bottom: 1.5px solid #969696;
+    height: 6px;
+    width: 6px;
+    transform: rotate(45deg);
+    margin: 4px;
+  }
+}

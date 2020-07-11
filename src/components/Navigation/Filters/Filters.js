@@ -67,10 +67,7 @@ class Filters extends Component {
 
     const allFilters = filters.map((filter) => (
       <div key={filter.id} className={styles.Dropdown}>
-        <button className={styles.Dropbtn}>
-          <span>{filter.data.name}</span>
-          <div className={styles.Dropbtn__arrow}></div>
-        </button>
+        <Button btnType="Dropbtn">{filter.data.name}</Button>
         <div className={styles.Dropdown__content}>
           {filter.data.values.map((value) => (
             <div key={value}>{value}</div>
