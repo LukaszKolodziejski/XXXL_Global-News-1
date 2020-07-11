@@ -5,11 +5,11 @@
   outline: none;
   cursor: pointer;
   font: inherit;
+}
 
-  &:first-of-type {
-    margin-left: 0;
-    padding-left: 0;
-  }
+.Button:first-of-type {
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .Clearbtn {
@@ -20,7 +20,9 @@
   width: 164px;
   font-size: 16px;
   line-height: 16px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   color: #493be1;
 }
@@ -28,7 +30,9 @@
 .LoadMoreButton {
   display: inline-block;
   background: #ffffff;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 50px;
   border: 1px solid #493be1;
   width: 330px;
@@ -51,3 +55,4 @@
   text-align: center;
   color: #ffffff;
 }
+/*# sourceMappingURL=Button.module.css.map */

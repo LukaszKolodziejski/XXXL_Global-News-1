@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "../../../axios-newsapi";
 import styles from "./css/Filters.module.css";
+import Button from "../../UI/Button/Button";
 
 const API_KEY = "21dec1c6cdd34f6986cecd09f8d9c71e";
 class Filters extends Component {
@@ -82,7 +83,7 @@ class Filters extends Component {
       <Fragment>
         <nav className={styles.Filters}>
           {allFilters}
-          <button className={styles.Clearbtn}>Clear Filters</button>
+          <Button btnType="Clearbtn">Clear Filters</Button>
         </nav>
       </Fragment>
     );

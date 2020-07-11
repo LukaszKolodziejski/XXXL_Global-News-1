@@ -1,9 +1,15 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import styles from "./css/SingleArticle.module.css";
+import Button from "../../UI/Button/Button";
 class SingleArticle extends Component {
-  state = {};
+  state = {
+    changeArticlePage: false,
+  };
+  readMoreHandler = () => this.setState({ changeArticlePage: true });
+
   render() {
+    const { changeArticlePage } = this.state;
     return (
       <Fragment>
         <article className={styles.SingleArticle}>
@@ -22,9 +28,10 @@ class SingleArticle extends Component {
             quia error laudantium. Accusantium ullam facere tempore, voluptas
             rerum atque maxime.
           </div>
-          <Link to="/article" className={styles.SingleArticle__CTA}>
+          <Button btnType="ReadMore" clicked={this.readMoreHandler}>
             Read More
-          </Link>
+          </Button>
+          {changeArticlePage && <Redirect to="/article" />}
         </article>
       </Fragment>
     );
