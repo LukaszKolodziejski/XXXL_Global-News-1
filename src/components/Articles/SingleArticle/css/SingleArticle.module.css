@@ -1,5 +1,6 @@
 .SingleArticle {
   background-color: #129d06;
+  position: relative;
 }
 
 .SingleArticle__image {
@@ -25,7 +26,7 @@
   font-size: 17px;
   line-height: 19px;
   color: #465252;
-  margin-bottom: 31px;
+  margin-bottom: 13%;
 }
 
 .Information {

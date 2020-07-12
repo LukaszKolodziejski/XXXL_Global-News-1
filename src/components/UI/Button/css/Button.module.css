@@ -54,6 +54,8 @@
   line-height: 16px;
   text-align: center;
   color: #ffffff;
+  position: absolute;
+  bottom: 0;
 }
 
 .Dropbtn {
