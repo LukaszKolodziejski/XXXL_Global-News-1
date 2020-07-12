@@ -72,13 +72,6 @@ class Filters extends Component {
     ],
   };
 
-  componentDidMount = () => {
-    axios
-      .get(API)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  };
-
   dropdownContentHandler = (value, filterId) => {
     const { filters } = { ...this.state };
 

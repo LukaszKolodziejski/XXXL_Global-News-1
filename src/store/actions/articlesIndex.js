@@ -25,13 +25,13 @@ export const fetchArticlesStart = () => {
   };
 };
 
-export const fetchArticles = (token, userId) => {
+export const fetchArticles = () => {
   return (dispatch) => {
     dispatch(fetchArticlesStart());
     axios
       .get(API)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         const fetchArticles = [];
         for (let key in res.data) {
           fetchArticles.push({
