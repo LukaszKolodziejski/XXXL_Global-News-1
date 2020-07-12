@@ -1,0 +1,1 @@
+export { fetchArticles } from "./articlesIndex";
