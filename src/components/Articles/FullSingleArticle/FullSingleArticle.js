@@ -2,9 +2,9 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 import { Redirect } from "react-router-dom";
-import styles from "./css/SingleArticle.module.css";
+import styles from "./css/FullSingleArticle.module.css";
 import Button from "../../UI/Button/Button";
-class SingleArticle extends Component {
+class FullSingleArticle extends Component {
   state = {
     changeArticlePage: false,
   };
@@ -24,7 +24,7 @@ class SingleArticle extends Component {
 
     return (
       <Fragment>
-        <article className={styles.SingleArticle}>
+        <article className={styles.FullSingleArticle}>
           <img
             className={styles.SingleArticle__image}
             src={data.urlToImage}
@@ -56,4 +56,4 @@ class SingleArticle extends Component {
   }
 }
 
-export default SingleArticle;
+export default FullSingleArticle;
