@@ -1,4 +1,4 @@
-.Articles {
+.Articles__Content {
   margin-top: 14px;
   display: -ms-grid;
   display: grid;
@@ -9,18 +9,7 @@
   row-gap: 41px;
 }
 
-.LoadMoreButton {
-  background: #ffffff;
-  margin-top: 50px;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  border: 1px solid #493be1;
-  width: 330px;
-  height: 48px;
-  font-size: 16px;
-  line-height: 16px;
+.Articles__Button {
   text-align: center;
-  color: #493be1;
 }
 /*# sourceMappingURL=Articles.module.css.map */
