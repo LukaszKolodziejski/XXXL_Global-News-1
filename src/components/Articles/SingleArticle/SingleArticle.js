@@ -21,7 +21,7 @@ class SingleArticle extends Component {
     const { changeArticlePage } = this.state;
     const { data } = this.props;
     const convertPublishedAt = this.convertDate(data.publishedAt);
-    console.log("data: >> ", data);
+    // console.log("data: >> ", data);
     return (
       <Fragment>
         <article className={styles.SingleArticle}>

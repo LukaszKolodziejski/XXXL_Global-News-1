@@ -1,79 +1,20 @@
 import React, { Component, Fragment } from "react";
-import axios from "../../../axios-newsapi";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
+
 import styles from "./css/Filters.module.css";
 import Button from "../../UI/Button/Button";
 
-const MAIN_API = `/everything?q=a&apiKey=`;
-const API_KEY = "21dec1c6cdd34f6986cecd09f8d9c71e";
-const API = `${MAIN_API}${API_KEY}`;
 class Filters extends Component {
   state = {
-    filters: [
-      {
-        id: "Topic",
-        api: {
-          mainFullStartQuery: "q=a&",
-          searchQuery: "q=",
-          startQuery: "a",
-          query: "",
-          active: false,
-        },
-        data: {
-          name: "Topic",
-          dropdownName: "Topic",
-          values: [
-            { query: "tech", name: "Tech" },
-            { query: "sports", name: "Sports" },
-            { query: "travel", name: "Travel" },
-            { query: "politics", name: "Politics" },
-          ],
-          activeValue: "",
-        },
-      },
-      {
-        id: "Dates",
-        api: {
-          mainFullStartQuery: "",
-          searchQuery: "from=",
-          startQuery: "",
-          query: "",
-          active: false,
-        },
-        data: {
-          name: "Time",
-          dropdownName: "Time",
-          values: [
-            { query: "month", name: "This month" },
-            { query: "week", name: "This week" },
-            { query: "today", name: "Today" },
-          ],
-          activeValue: "",
-        },
-      },
-      {
-        id: "SortBy",
-        api: {
-          mainFullStartQuery: "",
-          searchQuery: "sortBy=",
-          startQuery: "",
-          query: "",
-          active: false,
-        },
-        data: {
-          name: "Sort By",
-          dropdownName: "Sort By",
-          values: [
-            { active: false, query: "popularity", name: "Popularity" },
-            { active: false, query: "publishedAt", name: "Publication Date" },
-          ],
-          activeValue: "",
-        },
-      },
-    ],
+    change: false,
   };
 
+  componentDidUpdate = () =>
+    this.props.onFetchArticlesFilters(this.props.filters);
+
   dropdownContentHandler = (value, filterId) => {
-    const { filters } = { ...this.state };
+    const { filters } = { ...this.props };
 
     filters.forEach((filter) => {
       const { activeValue } = filter.data;
@@ -97,24 +38,8 @@ class Filters extends Component {
       }
     });
 
-    this.setState({ filters });
-  };
-
-  componentDidUpdate = (prevProps, prevState) => {
-    const queryApi = prevState.filters
-      .map((filter) =>
-        filter.api.active
-          ? `${filter.api.searchQuery}${filter.api.query}&`
-          : filter.api.mainFullStartQuery
-      )
-      .join("");
-    console.log(queryApi);
-
-    const newApi = `/everything?${queryApi}apiKey=${API_KEY}`;
-    axios
-      .get(newApi)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+    this.setState({ change: true });
+    this.props.onDropdownContentHandler(filters);
   };
 
   getIsoDate = (time) => {
@@ -132,7 +57,7 @@ class Filters extends Component {
   };
 
   clearButtonHandler = () => {
-    const { filters } = { ...this.state };
+    const { filters } = { ...this.props };
     filters.forEach((filter) => {
       filter.data.values.forEach((value) => (value.active = false));
       filter.data.dropdownName = filter.data.name;
@@ -140,29 +65,28 @@ class Filters extends Component {
       filter.api.active = false;
       filter.api.query = filter.api.startQuery;
     });
-    this.setState({ filters });
+    this.setState({ change: true });
+    this.props.onClearButtonHandler(filters);
   };
 
   render() {
-    const { filters } = this.state;
+    const { filters } = this.props;
 
     const allFilters = filters.map((filter) => (
       <div key={filter.id} className={styles.Dropdown}>
         <Button btnType="Dropbtn">{filter.data.dropdownName}</Button>
         <div className={styles.Dropdown__content}>
-          {filter.data.values.map((value) => {
-            return (
-              <div
-                key={value.name}
-                className={
-                  value.active ? styles.Dropdown__content___active : null
-                }
-                onClick={() => this.dropdownContentHandler(value, filter.id)}
-              >
-                {value.name}
-              </div>
-            );
-          })}
+          {filter.data.values.map((value) => (
+            <div
+              key={value.name}
+              className={
+                value.active ? styles.Dropdown__content___active : null
+              }
+              onClick={() => this.dropdownContentHandler(value, filter.id)}
+            >
+              {value.name}
+            </div>
+          ))}
         </div>
       </div>
     ));
@@ -180,4 +104,17 @@ class Filters extends Component {
   }
 }
 
-export default Filters;
+const mapStateToProps = (state) => ({
+  filters: state.articlesIndex.filters,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onFetchArticlesFilters: (filters) =>
+    dispatch(actions.fetchArticlesFilters(filters)),
+  onDropdownContentHandler: (filters) =>
+    dispatch(actions.dropdownContentHandler(filters)),
+  onClearButtonHandler: (filters) =>
+    dispatch(actions.clearButtonHandler(filters)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);
