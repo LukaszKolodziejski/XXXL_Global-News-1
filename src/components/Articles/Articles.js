@@ -7,9 +7,15 @@ import styles from "./css/Articles.module.css";
 class Articles extends Component {
   state = {
     countArticles: 6, // in Redux
+    //TODO: If clearButton -> countArticles = 6
   };
 
   componentDidMount = () => this.props.onFetchArticles();
+
+  loadMoreButtonHandler = () =>
+    this.setState((prevState) => ({
+      countArticles: prevState.countArticles + 6,
+    }));
 
   render() {
     const { countArticles } = this.state;
@@ -19,17 +25,10 @@ class Articles extends Component {
     if (!loading) {
       for (let key in articles[2]) {
         key !== "id" &&
+          key < countArticles &&
           allArticles.push(<SingleArticle key={key} data={articles[2][key]} />);
       }
-    } else {
-      allArticles = <p>Loading ...</p>;
-    }
-
-    //TODO: If clearButton -> countArticles = 6 and allArticles.empty()
-
-    // !loading
-    //   ? (allArticles = <SingleArticle data={articles[2][0]} />)
-    //   : (allArticles = <p>Loading ...</p>);
+    } else allArticles = <p>Loading ...</p>;
 
     return (
       <main className={styles.Articles}>
