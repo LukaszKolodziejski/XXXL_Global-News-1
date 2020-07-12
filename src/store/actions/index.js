@@ -1,1 +1,6 @@
-export { fetchArticles } from "./articlesIndex";
+export {
+  fetchArticles,
+  fetchArticlesFilters,
+  dropdownContentHandler,
+  clearButtonHandler,
+} from "./articlesIndex";
