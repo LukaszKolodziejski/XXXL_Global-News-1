@@ -63,8 +63,8 @@ class Filters extends Component {
           name: "Sort By",
           dropdownName: "Sort By",
           values: [
-            { query: "popularity", name: "Popularity" },
-            { query: "publishedAt", name: "Publication Date" },
+            { active: false, query: "popularity", name: "Popularity" },
+            { active: false, query: "publishedAt", name: "Publication Date" },
           ],
           activeValue: "",
         },
@@ -84,8 +84,10 @@ class Filters extends Component {
 
     filters.forEach((filter) => {
       const { activeValue } = filter.data;
+      filter.data.values.forEach((value) => (value.active = false));
       if (filter.id === filterId) {
         if (activeValue !== value.name) {
+          value.active = true;
           filter.data.dropdownName = value.name;
           filter.data.activeValue = value.name;
           filter.api.active = true;
@@ -93,6 +95,7 @@ class Filters extends Component {
             ? (filter.api.query = this.getIsoDate(value.query))
             : (filter.api.query = value.query);
         } else {
+          value.active = false;
           filter.data.dropdownName = filter.data.name;
           filter.data.activeValue = "";
           filter.api.active = false;
@@ -138,6 +141,7 @@ class Filters extends Component {
   clearButtonHandler = () => {
     const { filters } = { ...this.state };
     filters.forEach((filter) => {
+      filter.data.values.forEach((value) => (value.active = false));
       filter.data.dropdownName = filter.data.name;
       filter.data.activeValue = "";
       filter.api.active = false;
@@ -157,6 +161,9 @@ class Filters extends Component {
             return (
               <div
                 key={value.name}
+                className={
+                  value.active ? styles.Dropdown__content___active : null
+                }
                 onClick={() => this.dropdownContentHandler(value, filter.id)}
               >
                 {value.name}
