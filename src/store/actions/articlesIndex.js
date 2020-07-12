@@ -7,21 +7,21 @@ const API = `${MAIN_API}${API_KEY}`;
 
 export const fetchArticlesSuccess = (articles) => {
   return {
-    type: actionTypes.FETCH_ORDERS_SUCCESS,
+    type: actionTypes.FETCH_ARTICLES_SUCCESS,
     articles: articles,
   };
 };
 
 export const fetchArticlesFail = (error) => {
   return {
-    type: actionTypes.FETCH_ORDERS_FAIL,
+    type: actionTypes.FETCH_ARTICLES_FAIL,
     error: error,
   };
 };
 
 export const fetchArticlesStart = () => {
   return {
-    type: actionTypes.FETCH_ORDERS_START,
+    type: actionTypes.FETCH_ARTICLES_START,
   };
 };
 
