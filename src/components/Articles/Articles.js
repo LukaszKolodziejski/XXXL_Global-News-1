@@ -10,15 +10,16 @@ class Articles extends Component {
   componentDidMount = () => this.props.onFetchArticles();
 
   render() {
+    const { loading, articles } = this.props;
+    let singleArticles;
+
+    !loading
+      ? (singleArticles = <SingleArticle data={articles[2][0]} />)
+      : (singleArticles = <p>Loading ...</p>);
+
     return (
       <main className={styles.Articles}>
-        <div className={styles.Articles__Content}>
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-        </div>
+        <div className={styles.Articles__Content}>{singleArticles}</div>
         <div className={styles.Articles__Button}>
           <Button btnType="LoadMoreButton">Show More</Button>
         </div>
