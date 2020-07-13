@@ -5,4 +5,4 @@ export {
   clearButtonHandler,
 } from "./articlesIndex";
 
-export { showFullArticle } from "./article";
+export { getArticleID } from "./article";
