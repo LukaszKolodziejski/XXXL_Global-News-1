@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
+
 import * as actions from "../../store/actions/index";
 import SingleArticle from "./SingleArticle/SingleArticle";
 import Button from "../../components/UI/Button/Button";
@@ -51,6 +53,11 @@ class Articles extends Component {
     );
   }
 }
+
+Articles.propTypes = {
+  articles: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   articles: state.articlesIndex.articles,
