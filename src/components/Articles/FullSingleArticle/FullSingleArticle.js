@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from "../../../store/actions/index";
+import PropTypes from "prop-types";
 
 import styles from "./css/FullSingleArticle.module.css";
 import Button from "../../UI/Button/Button";
@@ -48,13 +47,8 @@ class FullSingleArticle extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  articles: state.articlesIndex.articles,
-  loading: state.articlesIndex.loading,
-});
+FullSingleArticle.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  onFetchArticles: () => dispatch(actions.fetchArticles()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FullSingleArticle);
+export default FullSingleArticle;

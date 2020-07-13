@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import styles from "./css/SingleArticle.module.css";
 import Button from "../../UI/Button/Button";
@@ -50,5 +51,10 @@ class SingleArticle extends Component {
     );
   }
 }
+
+SingleArticle.propTypes = {
+  data: PropTypes.object.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default SingleArticle;
