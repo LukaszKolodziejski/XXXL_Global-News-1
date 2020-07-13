@@ -23,7 +23,7 @@ class FullSingleArticle extends Component {
       <Fragment>
         <article className={styles.FullSingleArticle}>
           <img
-            className={styles.SingleArticle__image}
+            className={styles.FullSingleArticle__image}
             src={data.urlToImage}
           ></img>
           <div className={styles.Information}>
@@ -31,21 +31,17 @@ class FullSingleArticle extends Component {
               {convertPublishedAt}
             </span>
             <span className={styles.Information__data}>{data.author}</span>
-            <Link
-              to={data.url}
-              className={styles.Information__data}
-              target="_blank"
-            >
+            <Link to={data.url} className={styles.Information__data}>
               {data.source.name}
             </Link>
+            <h3 className={styles.FullSingleArticle__title}>{data.title}</h3>
+            <div className={styles.FullSingleArticle__description}>
+              {data.description}
+            </div>
+            <Link to={data.url} target="_blank">
+              <Button btnType="Source">Go to Source</Button>
+            </Link>
           </div>
-          <h3 className={styles.SingleArticle__title}>{data.title}</h3>
-          <div className={styles.SingleArticle__description}>
-            {data.description}
-          </div>
-          <Button btnType="ReadMore" clicked={this.readMoreHandler}>
-            Read More
-          </Button>
         </article>
       </Fragment>
     );

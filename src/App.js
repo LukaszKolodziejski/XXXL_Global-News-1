@@ -4,7 +4,7 @@ import asyncComponent from "./hoc/asyncComponent/asyncComponent";
 
 import Layout from "./hoc/Layout/Layout";
 import ArticlesIndex from "./containers/ArticlesIndex/ArticlesIndex";
-import "./css/main.css";
+import "./css/style.css";
 
 const asyncArticle = asyncComponent(() => {
   return import("./containers/Article/Article");
