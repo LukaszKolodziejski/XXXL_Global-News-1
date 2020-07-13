@@ -1,14 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
-import { Redirect } from "react-router-dom";
 import styles from "./css/FullSingleArticle.module.css";
 import Button from "../../UI/Button/Button";
 class FullSingleArticle extends Component {
-  state = {
-    changeArticlePage: false,
-  };
-  readMoreHandler = () => this.setState({ changeArticlePage: true });
+  state = {};
 
   convertDate = (date) => {
     const d = new Date(date);
@@ -18,10 +14,9 @@ class FullSingleArticle extends Component {
   };
 
   render() {
-    const { changeArticlePage } = this.state;
     const { data } = this.props;
     const convertPublishedAt = this.convertDate(data.publishedAt);
-
+    console.log(data);
     return (
       <Fragment>
         <article className={styles.FullSingleArticle}>
@@ -39,17 +34,16 @@ class FullSingleArticle extends Component {
               className={styles.Information__data}
               target="_blank"
             >
-              {data.source.name}
+              {/* {data.source.name} */}
             </Link>
           </div>
           <h3 className={styles.SingleArticle__title}>{data.title}</h3>
           <div className={styles.SingleArticle__description}>
             {data.description}
           </div>
-          <Button btnType="ReadMore" clicked={this.readMoreHandler}>
-            Read More
-          </Button>
-          {changeArticlePage && <Redirect to="/article" />}
+          <Link to="/somewhere__">
+            <Button btnType="ReadMore">Read More</Button>
+          </Link>
         </article>
       </Fragment>
     );
