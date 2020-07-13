@@ -1,14 +1,17 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
 
-import { Redirect } from "react-router-dom";
 import styles from "./css/SingleArticle.module.css";
 import Button from "../../UI/Button/Button";
 class SingleArticle extends Component {
-  state = {
-    changeArticlePage: false,
+  state = {};
+
+  readMoreHandler = () => {
+    const { data } = this.props;
+    this.props.onShowFullArticle(data);
   };
-  readMoreHandler = () => this.setState({ changeArticlePage: true });
 
   convertDate = (date) => {
     const d = new Date(date);
@@ -18,10 +21,9 @@ class SingleArticle extends Component {
   };
 
   render() {
-    const { changeArticlePage } = this.state;
     const { data } = this.props;
     const convertPublishedAt = this.convertDate(data.publishedAt);
-
+    console.log(data);
     return (
       <Fragment>
         <article className={styles.SingleArticle}>
@@ -46,14 +48,19 @@ class SingleArticle extends Component {
           <div className={styles.SingleArticle__description}>
             {data.description}
           </div>
-          <Button btnType="ReadMore" clicked={this.readMoreHandler}>
-            Read More
-          </Button>
-          {changeArticlePage && <Redirect to="/article" />}
+          <Link to="/article">
+            <Button btnType="ReadMore" clicked={this.readMoreHandler}>
+              Read More
+            </Button>
+          </Link>
         </article>
       </Fragment>
     );
   }
 }
 
-export default SingleArticle;
+const mapDispatchToProps = (dispatch) => ({
+  onShowFullArticle: (data) => dispatch(actions.showFullArticle(data)),
+});
+
+export default connect(null, mapDispatchToProps)(SingleArticle);
