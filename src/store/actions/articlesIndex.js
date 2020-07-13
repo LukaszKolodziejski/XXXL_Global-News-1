@@ -5,14 +5,14 @@ const MAIN_API = `/everything?q=a&apiKey=`;
 const API_KEY = "21dec1c6cdd34f6986cecd09f8d9c71e";
 const API = `${MAIN_API}${API_KEY}`;
 
-export const fetchArticlesSuccess = (articles) => ({
-  type: actionTypes.FETCH_ARTICLES_SUCCESS,
-  articles,
-});
-
 export const fetchArticlesFail = (error) => ({
   type: actionTypes.FETCH_ARTICLES_FAIL,
   error,
+});
+
+export const fetchArticlesSuccess = (articles) => ({
+  type: actionTypes.FETCH_ARTICLES_SUCCESS,
+  articles,
 });
 
 export const fetchArticlesStart = () => ({
@@ -25,7 +25,7 @@ export const fetchArticles = () => (dispatch) => {
   axios
     .get(API)
     .then((res) => {
-      // console.log(res.data);
+      console.log(res.data);
       const fetchArticles = [];
       for (let key in res.data) {
         fetchArticles.push({
@@ -67,7 +67,6 @@ export const fetchArticlesFilters = (filters) => (dispatch) => {
   axios
     .get(newApi)
     .then((res) => {
-      //   console.log(res.data);
       const fetchArticles = [];
       for (let key in res.data) {
         fetchArticles.push({
