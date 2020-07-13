@@ -11,6 +11,7 @@ class Articles extends Component {
   };
 
   componentDidMount = () => this.props.onFetchArticles();
+  readMoreIdHandler = (id) => this.props.onGetArticleID(id);
 
   loadMoreButtonHandler = () =>
     this.setState((prevState) => ({
@@ -22,12 +23,18 @@ class Articles extends Component {
     const { loading, articles } = this.props;
     let allArticles = [];
     let loadMoreButton;
-
     if (!loading) {
       for (let key in articles[2]) {
         key !== "id" &&
           key < countArticles &&
-          allArticles.push(<SingleArticle key={key} data={articles[2][key]} />);
+          allArticles.push(
+            <SingleArticle
+              key={key}
+              id={key}
+              data={articles[2][key]}
+              idHandler={this.readMoreIdHandler}
+            />
+          );
       }
       loadMoreButton = (
         <Button btnType="LoadMoreButton" clicked={this.loadMoreButtonHandler}>
@@ -52,6 +59,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onFetchArticles: () => dispatch(actions.fetchArticles()),
+  onGetArticleID: (id) => dispatch(actions.getArticleID(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Articles);
