@@ -2,8 +2,9 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions/index";
 
-import styles from "./css/Filters.module.css";
 import Button from "../../UI/Button/Button";
+import ClearFilters from "./ClearFilters/ClearFilters";
+import styles from "./css/Filters.module.css";
 
 class Filters extends Component {
   state = {
@@ -56,21 +57,11 @@ class Filters extends Component {
     return iso;
   };
 
-  clearButtonHandler = () => {
-    const { filters } = { ...this.props };
-    filters.forEach((filter) => {
-      filter.data.values.forEach((value) => (value.active = false));
-      filter.data.dropdownName = filter.data.name;
-      filter.data.activeValue = "";
-      filter.api.active = false;
-      filter.api.query = filter.api.startQuery;
-    });
-    this.setState({ change: true });
-    this.props.onClearButtonHandler(filters);
-  };
+  clearFiltersHandler = () => this.setState({ change: true });
 
   render() {
     const { filters } = this.props;
+    const { change } = this.state;
 
     const allFilters = filters.map((filter) => (
       <div key={filter.id} className={styles.Dropdown}>
@@ -95,9 +86,7 @@ class Filters extends Component {
       <Fragment>
         <nav className={styles.Filters}>
           {allFilters}
-          <Button btnType="Clearbtn" clicked={this.clearButtonHandler}>
-            Clear Filters
-          </Button>
+          <ClearFilters onClear={this.clearFiltersHandler} />
         </nav>
       </Fragment>
     );
@@ -113,8 +102,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(actions.fetchArticlesFilters(filters)),
   onDropdownContentHandler: (filters) =>
     dispatch(actions.dropdownContentHandler(filters)),
-  onClearButtonHandler: (filters) =>
-    dispatch(actions.clearButtonHandler(filters)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);

@@ -1,17 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from "../../../store/actions/index";
 
-import styles from "./css/SingleArticle.module.css";
+import styles from "./css/FullSingleArticle.module.css";
 import Button from "../../UI/Button/Button";
-class SingleArticle extends Component {
+class FullSingleArticle extends Component {
   state = {};
-
-  readMoreHandler = () => {
-    const { data } = this.props;
-    this.props.onShowFullArticle(data);
-  };
 
   convertDate = (date) => {
     const d = new Date(date);
@@ -26,7 +19,7 @@ class SingleArticle extends Component {
     console.log(data);
     return (
       <Fragment>
-        <article className={styles.SingleArticle}>
+        <article className={styles.FullSingleArticle}>
           <img
             className={styles.SingleArticle__image}
             src={data.urlToImage}
@@ -41,17 +34,15 @@ class SingleArticle extends Component {
               className={styles.Information__data}
               target="_blank"
             >
-              {data.source.name}
+              {/* {data.source.name} */}
             </Link>
           </div>
           <h3 className={styles.SingleArticle__title}>{data.title}</h3>
           <div className={styles.SingleArticle__description}>
             {data.description}
           </div>
-          <Link to="/article">
-            <Button btnType="ReadMore" clicked={this.readMoreHandler}>
-              Read More
-            </Button>
+          <Link to="/somewhere__">
+            <Button btnType="ReadMore">Read More</Button>
           </Link>
         </article>
       </Fragment>
@@ -59,8 +50,4 @@ class SingleArticle extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  onShowFullArticle: (data) => dispatch(actions.showFullArticle(data)),
-});
-
-export default connect(null, mapDispatchToProps)(SingleArticle);
+export default FullSingleArticle;

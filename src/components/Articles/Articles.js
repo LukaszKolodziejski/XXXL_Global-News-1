@@ -4,10 +4,10 @@ import * as actions from "../../store/actions/index";
 import SingleArticle from "./SingleArticle/SingleArticle";
 import Button from "../../components/UI/Button/Button";
 import styles from "./css/Articles.module.css";
+import Spinner from "../../components/UI/Spinner/Spinner";
 class Articles extends Component {
   state = {
-    countArticles: 6, // in Redux
-    //TODO: If clearButton -> countArticles = 6
+    countArticles: 6,
   };
 
   componentDidMount = () => this.props.onFetchArticles();
@@ -21,6 +21,7 @@ class Articles extends Component {
     const { countArticles } = this.state;
     const { loading, articles } = this.props;
     let allArticles = [];
+    let loadMoreButton;
 
     if (!loading) {
       for (let key in articles[2]) {
@@ -28,16 +29,17 @@ class Articles extends Component {
           key < countArticles &&
           allArticles.push(<SingleArticle key={key} data={articles[2][key]} />);
       }
-    } else allArticles = <p>Loading ...</p>;
+      loadMoreButton = (
+        <Button btnType="LoadMoreButton" clicked={this.loadMoreButtonHandler}>
+          Show More
+        </Button>
+      );
+    } else loadMoreButton = <Spinner />;
 
     return (
       <main className={styles.Articles}>
         <div className={styles.Articles__Content}>{allArticles}</div>
-        <div className={styles.Articles__Button}>
-          <Button btnType="LoadMoreButton" clicked={this.loadMoreButtonHandler}>
-            Show More
-          </Button>
-        </div>
+        <div className={styles.Articles__Button}>{loadMoreButton}</div>
       </main>
     );
   }

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 
-import SingleArticle from "../../components/Articles/SingleArticle/SingleArticle";
-import Title from "../../components/Title/Title";
+import FullSingleArticle from "../../components/Articles/FullSingleArticle/FullSingleArticle";
 import ReturnButton from "../../components/Navigation/ReturnButton/ReturnButton";
+import Title from "../../components/Title/Title";
 class Article extends Component {
   state = {};
   render() {
@@ -10,7 +10,7 @@ class Article extends Component {
       <Fragment>
         <Title name="Article Title" />
         <ReturnButton>Return to articles list</ReturnButton>
-        <SingleArticle />
+        <FullSingleArticle />
       </Fragment>
     );
   }
