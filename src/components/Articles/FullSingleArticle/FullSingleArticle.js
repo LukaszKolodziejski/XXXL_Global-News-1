@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions/index";
 
 import styles from "./css/FullSingleArticle.module.css";
 import Button from "../../UI/Button/Button";
@@ -16,7 +18,7 @@ class FullSingleArticle extends Component {
   render() {
     const { data } = this.props;
     const convertPublishedAt = this.convertDate(data.publishedAt);
-    console.log(data);
+
     return (
       <Fragment>
         <article className={styles.FullSingleArticle}>
@@ -34,20 +36,29 @@ class FullSingleArticle extends Component {
               className={styles.Information__data}
               target="_blank"
             >
-              {/* {data.source.name} */}
+              {data.source.name}
             </Link>
           </div>
           <h3 className={styles.SingleArticle__title}>{data.title}</h3>
           <div className={styles.SingleArticle__description}>
             {data.description}
           </div>
-          <Link to="/somewhere__">
-            <Button btnType="ReadMore">Read More</Button>
-          </Link>
+          <Button btnType="ReadMore" clicked={this.readMoreHandler}>
+            Read More
+          </Button>
         </article>
       </Fragment>
     );
   }
 }
 
-export default FullSingleArticle;
+const mapStateToProps = (state) => ({
+  articles: state.articlesIndex.articles,
+  loading: state.articlesIndex.loading,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onFetchArticles: () => dispatch(actions.fetchArticles()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FullSingleArticle);
