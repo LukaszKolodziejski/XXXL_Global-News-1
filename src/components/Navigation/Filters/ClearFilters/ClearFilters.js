@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import * as actions from "../../../../store/actions/index";
 
 import Button from "../../../UI/Button/Button";
@@ -28,6 +29,10 @@ class ClearFilters extends Component {
     );
   }
 }
+
+ClearFilters.propTypes = {
+  filters: PropTypes.object.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   filters: state.articlesIndex.filters,

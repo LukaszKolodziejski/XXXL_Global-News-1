@@ -5,9 +5,8 @@ const MAIN_API = `/everything?q=a&apiKey=`;
 const API_KEY = "21dec1c6cdd34f6986cecd09f8d9c71e";
 const API = `${MAIN_API}${API_KEY}`;
 
-export const fetchArticlesFail = (error) => ({
-  type: actionTypes.FETCH_ARTICLES_FAIL,
-  error,
+export const fetchArticlesStart = () => ({
+  type: actionTypes.FETCH_ARTICLES_START,
 });
 
 export const fetchArticlesSuccess = (articles) => ({
@@ -15,9 +14,15 @@ export const fetchArticlesSuccess = (articles) => ({
   articles,
 });
 
-export const fetchArticlesStart = () => ({
-  type: actionTypes.FETCH_ARTICLES_START,
+export const fetchArticlesFail = (error) => ({
+  type: actionTypes.FETCH_ARTICLES_FAIL,
+  error,
 });
+
+// Redux-Saga
+// export const fetchArticles = () => ({
+//   type: actionTypes.FETCH_ARTICLES,
+// });
 
 // Redux-Thunk
 export const fetchArticles = () => (dispatch) => {
@@ -54,6 +59,12 @@ export const fetchArticlesFiltersFail = (error) => ({
   error,
 });
 
+// Redux-Saga
+// export const fetchArticlesFilters = () => ({
+//   type: actionTypes.FETCH_ARTICLES_FILTERS,
+// });
+
+// Redux-Thunk
 export const fetchArticlesFilters = (filters) => (dispatch) => {
   dispatch(fetchArticlesFiltersStart());
   const queryApi = filters
