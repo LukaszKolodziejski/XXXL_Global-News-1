@@ -7,6 +7,7 @@ class Layout extends Component {
     return (
       <div className={classes.Layout}>
         <main className={classes.Content}>{this.props.children}</main>
+        <footer className={classes.Footer}></footer>
       </div>
     );
   }

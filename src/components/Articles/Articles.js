@@ -46,7 +46,7 @@ class Articles extends Component {
     return (
       <main className={styles.Articles}>
         <div className={styles.Articles__Content}>{allArticles}</div>
-        <div className={styles.Articles__Button}>{loadMoreButton}</div>
+        {loadMoreButton}
       </main>
     );
   }
