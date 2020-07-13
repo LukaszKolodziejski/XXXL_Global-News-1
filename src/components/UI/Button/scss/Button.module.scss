@@ -13,7 +13,6 @@
 }
 
 .Clearbtn {
-  float: right;
   background: #ffffff;
   border: 1px solid #493be1;
   height: 32px;
@@ -23,6 +22,9 @@
   align-items: center;
   text-align: center;
   color: #493be1;
+  @media (min-width: 640px) {
+    float: right;
+  }
 }
 
 .LoadMoreButton {
@@ -50,6 +52,8 @@
   line-height: 16px;
   text-align: center;
   color: #ffffff;
+  position: absolute;
+  bottom: 0;
 }
 
 .Dropbtn {
@@ -76,5 +80,24 @@
     width: 6px;
     transform: rotate(45deg);
     margin: 4px;
+  }
+}
+
+.Source {
+  display: block;
+  background: #493be1;
+  text-decoration: none;
+  border: 1px solid #493be1;
+  width: 100%;
+  padding: 16px 0;
+  height: 48px;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  bottom: 0;
+  @media (min-width: 800px) {
+    width: 50%;
   }
 }

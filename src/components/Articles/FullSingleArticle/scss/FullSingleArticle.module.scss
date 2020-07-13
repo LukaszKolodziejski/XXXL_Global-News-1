@@ -1,10 +1,9 @@
-.SingleArticle {
+.FullSingleArticle {
   position: relative;
 
   &__image {
     display: block;
     width: 100%;
-    height: 250px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -36,8 +35,11 @@
     color: #606060;
     margin-right: 16px;
     text-decoration: none;
-    &:last-child {
+    &:nth-child(3) {
       color: #493be1;
     }
+  }
+  @media (min-width: 800px) {
+    margin: 0 30%;
   }
 }

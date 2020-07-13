@@ -1,29 +1,19 @@
 .Articles {
+  text-align: center;
   &__Content {
+    text-align: left;
     margin-top: 14px;
     display: grid;
-    grid-template-columns: repeat(3, 2fr);
-    column-gap: 25px;
+    grid-template-columns: repeat(1, 2fr);
     row-gap: 41px;
-    //   grid-template-rows: auto 1fr auto auto;
-    //   grid-template-areas:
-    //     "logo szukaj menu"
-    //     "img img img "
-    //     "komt komt komt "
-    //     "foot foot foot ";
-    @media (min-width: 1024px) {
-      // grid-template-columns: minmax(300px, auto) 1fr;
-      // grid-template-rows: auto auto auto 1fr auto auto;
-      // grid-template-areas:
-      //   "logo img"
-      //   "menu img "
-      //   "szukaj img"
-      //   "e3 img"
-      //   "kont img"
-      //   "foot foot ";
+
+    @media (min-width: 640px) {
+      column-gap: 25px;
+      grid-template-columns: repeat(2, 2fr);
     }
-  }
-  &__Button {
-    text-align: center;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 2fr);
+    }
   }
 }

@@ -1,5 +1,4 @@
 .Filters {
-  background-color: rgb(235, 193, 23);
   padding: 8px 0;
 }
 
@@ -11,6 +10,7 @@
     display: none;
     position: absolute;
     left: 0;
+    color: #606060;
     background-color: #ffffff;
     border: 1px solid #dcdcdc;
     min-width: 160px;
@@ -18,12 +18,15 @@
     z-index: 1;
     cursor: pointer;
 
+    &___active {
+      color: #493be1;
+    }
+
     .Dropdown:hover & {
       display: block;
     }
 
     div {
-      color: black;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
