@@ -5,10 +5,7 @@ import * as actions from "../../../../store/actions/index";
 import Button from "../../../UI/Button/Button";
 
 class ClearFilters extends Component {
-  state = { change: false };
-
-  componentDidUpdate = () =>
-    this.props.onFetchArticlesFilters(this.props.filters);
+  state = {};
 
   clearButtonHandler = () => {
     const { filters } = { ...this.props };
@@ -19,7 +16,7 @@ class ClearFilters extends Component {
       filter.api.active = false;
       filter.api.query = filter.api.startQuery;
     });
-    this.setState({ change: true });
+    this.props.onClear();
     this.props.onClearButtonHandler(filters);
   };
 
@@ -37,8 +34,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onFetchArticlesFilters: (filters) =>
-    dispatch(actions.fetchArticlesFilters(filters)),
   onClearButtonHandler: (filters) =>
     dispatch(actions.clearButtonHandler(filters)),
 });

@@ -57,8 +57,11 @@ class Filters extends Component {
     return iso;
   };
 
+  clearFiltersHandler = () => this.setState({ change: true });
+
   render() {
     const { filters } = this.props;
+    const { change } = this.state;
 
     const allFilters = filters.map((filter) => (
       <div key={filter.id} className={styles.Dropdown}>
@@ -83,7 +86,7 @@ class Filters extends Component {
       <Fragment>
         <nav className={styles.Filters}>
           {allFilters}
-          <ClearFilters />
+          <ClearFilters onClear={this.clearFiltersHandler} />
         </nav>
       </Fragment>
     );
