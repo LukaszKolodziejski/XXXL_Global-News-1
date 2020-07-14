@@ -31,7 +31,7 @@ class ClearFilters extends Component {
 }
 
 ClearFilters.propTypes = {
-  filters: PropTypes.object.isRequired,
+  filters: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = (state) => ({
