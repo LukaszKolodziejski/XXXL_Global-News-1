@@ -1,68 +1,110 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> ## AppUnite-1 ( from React to Redux-Thunk... ) // 07.2020 
+> #### I connected here a lot of technologies in one place:
+> #### ... to show what I can create for 5 days !!!
+ 
+```js
+JavaScript                      React.js                      Redux
+Redux-Thunk                     Redux-Saga                    React Router
+Axios                           SASS / SCSS                   CSS Modules
+CSS3                            function* generator / yield   HTML5                                
+Babel                           ES6                           REST API      
+MVP
 
-## Available Scripts
+```
 
-In the project directory, you can run:
+> # How it work ? (11 Steps)
+> ## I want to show the most important details and possibilities of my application here :) (only 2 min)
 
-### `npm start`
+---
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> ## 1. Start page & Load API:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/1-start.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+---
+---
+---
 
-### `npm test`
+> ## 2. Show more articles after click the button:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/2-show-more-button.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+---
+---
 
-### `npm run build`
+> ## 3. The Filter "Topic" >> Tech, Sports, Travel, Politics <<
+>> #### Click 2 times to reset this filter
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/3-filter-topic.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+---
+---
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+> ## 4. The Filter "Time": >> This month, This week, Today <<
+>> #### Click 2 times to reset this filter
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/4-filter-time.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
+---
+---
 
-### `npm run eject`
+> ## 5. The Filter "Sort By":>> Popularity, Publication Date <<
+>> #### Click 2 times to reset this filter
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/5-filter-sortBy.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
+---
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> ## 6. Clear all of filters:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/6-clear-filter.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
+---
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+> ## 7. Click and Show this full Article:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/7-read-more-article.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-## Learn More
+---
+---
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> ## 8. Return to main page:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/8-return-article.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+---
+---
 
-### Code Splitting
+> ## 9. Responsive View from large Desktop to Mobile Version:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/9-responsive-view.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+---
+---
+---
 
-### Analyzing the Bundle Size
+> ## 10. Fast summary all of Steps:
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/10-all-steps.gif)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+---
+---
+---
 
-### Making a Progressive Web App
+> > # 11. Scheme of Project
+[![Demo CountPages alpha](https://github.com/LukaszKolodziejski/AppUnite-2/blob/master/src/assets/11-schemat.png)](https://github.com/LukaszKolodziejski/AppUnite-1)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+---
+---
+---
 
-### Advanced Configuration
+> > # How to use the downloaded files
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### 1) Run "npm install" in the extracted folder
+### 2) Run "npm start" to view the project
+#### *3) Enter your Firebase project ID into the .firebaserc file before deploying
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Compare my code to yours to solve issues you might encounter. You may also copy 
+the content of src/ into your own project's src/ folder to use your project setup 
+(which might've been created with a different create-react-app version) and still use my code.
+ 
+ 
