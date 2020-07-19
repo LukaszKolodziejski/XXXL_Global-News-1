@@ -97,11 +97,11 @@ MVP                             asynchronous components       BEM
 ---
 ---
 
-> # Extra Bonus :fire:
+>> # Extra Bonus :fire:
 
->> Please check this solution and after then I welcome to my second solution (AppUnite-2) to show more advanced technologies. 
->> ...
->> But now really check this entire (AppUnite-1) to see what's the difference between both projects
+#### Please check this solution and after then I welcome to my second solution (AppUnite-2) to show more advanced technologies. 
+#### ...
+#### But now really check this entire (AppUnite-1) to see what's the difference between both projects
 
 ---
 ---
