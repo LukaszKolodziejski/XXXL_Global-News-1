@@ -7,8 +7,8 @@ JavaScript                      React.js                      Redux
 Redux-Thunk                     Redux-Saga                    React Router
 Axios                           SASS / SCSS                   CSS Modules
 CSS3                            function* generator / yield   HTML5                                
-Babel                           ES6                           REST API      
-Prop Types                      asynchronous components       BEM
+Babel                           asynchronous components       REST API      
+Prop Types                      ES6                           BEM
 MVP
 
 ```
