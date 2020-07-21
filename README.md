@@ -1,4 +1,4 @@
-> ## AppUnite-1 ( from React to Redux-Thunk... ) // 07.2020   
+> ## AppUnite-1 ( from React to Redux-Thunk... ) // 07.2020    
 > #### I connected here a lot of technologies in one place:
 > #### ... to show what I can create.
  
