@@ -1,4 +1,4 @@
-> ## AppUnite-1 ( from React to Redux-Thunk... ) // 07.2020    
+> ## XXXL_Global-News-1 ( from React to Redux-Thunk... ) // 07.2020    
 > #### I connected here a lot of technologies in one place:
 > #### ... to show what I can create.
  
@@ -102,8 +102,8 @@ MVP
 
 >> # Extra Bonus :fire:
 
-### Please Check this Project and after then I welcome to my second Solution (AppUnite-2) to show more Advanced Technologies. 
-### But Now Really Check this Entire (AppUnite-1) to see later what's the Difference between both Projects.
+### Please Check this Project and after then I welcome to my second Solution (XXXL_Global-News-2) to show more Advanced Technologies. 
+### But Now Really Check this Entire (XXXL_Global-News-1) to see later what's the Difference between both Projects.
 
 ---
 ---
